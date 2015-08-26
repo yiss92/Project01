@@ -1034,16 +1034,25 @@ public class main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String temp = null;
-				String temp1 = null;				
-//				title();
-				today = daydao.select(temp, temp1);
-				System.out.println(today.getTitle());
+				String temp1 = "ti";
+				insert(temp, temp1);
+				//title();
+				today = daydao.select(temp1);
+				//System.out.println(today.getTitle());
+				if (daydao.select(temp) != null) {
+					//textField_24.setText(today.getTitle());
+				}else{
+					textField_24.setText(today.getTitle());
+				}
+					
+				//System.out.println(today.getTitle());
 			}
 		});
 		textField_24.setEditable(false);
 		textField_24.setColumns(10);
 		textField_24.setBounds(82, 64, 643, 21);
 		frame.getContentPane().add(textField_24);
+		//textField_24.setText(today.getTitle());
 
 		// yiss92 select
 		// yiss92
@@ -1123,6 +1132,9 @@ public class main {
 
 		temp = textfieldSetText("11", "pm");
 		textField_23.setText(temp);
+		
+		temp = textfieldSetText("", "ti");
+		textField_24.setText(temp);
 	}
 
 	public String textfieldSetText(String temp, String temp1) {
@@ -1255,7 +1267,7 @@ public class main {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
 					//System.out.println("title");
-					//System.out.println(textField_42.getText());
+					System.out.println(textField_42.getText());
 					today.setTitle(textField_42.getText());
 					today.setToDo(textField_43.getText());
 					today.setLocation(textField_44.getText());
@@ -1264,8 +1276,8 @@ public class main {
 					today.setMonth(textField_47.getText());
 					today.setDay(textField_48.getText());
 					today.setWeek(textField_49.getText());
-					//today.setHours(temp);
-					//today.setEither(temp1);
+					today.setHours(temp);
+					today.setEither(temp1);
 					daydao.insert(today);
 					// today = daydao.selectToday();
 					// today = daydao.insert(today);
